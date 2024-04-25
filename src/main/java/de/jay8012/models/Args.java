@@ -3,10 +3,10 @@ package de.jay8012.models;
 import de.jay8012.enums.FileType;
 import de.jay8012.exceptions.UserInputException;
 
-import java.nio.file.Path;
+import java.io.File;
 
 public class Args {
-    private Path path;
+    private File filePath;
     private boolean isFolder;
     private String fileNameFormat;
     private FileType fileType;
@@ -15,7 +15,8 @@ public class Args {
         for (int i = 0; i < args.length; i++) {
             switch (args[i]) {
                 case "-p":
-                    path = Path.of(args[i + 1]);
+                    filePath = new File(args[i + 1]);
+                    isFolder = filePath.isDirectory();
                     break;
                 case "-m":
                     fileType = FileType.MOVIE;
@@ -28,14 +29,6 @@ public class Args {
                     break;
             }
         }
-    }
-
-    public Path getPath() {
-        return path;
-    }
-
-    public void setPath(Path path) {
-        this.path = path;
     }
 
     public boolean isFolder() {
@@ -65,7 +58,7 @@ public class Args {
     @Override
     public String toString() {
         return "Args{" +
-               "path=" + path +
+               "filepath=" + filePath +
                ", isFolder=" + isFolder +
                ", fileNameFormat='" + fileNameFormat + '\'' +
                ", fileType=" + fileType +
