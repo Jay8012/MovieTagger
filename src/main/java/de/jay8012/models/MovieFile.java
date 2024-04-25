@@ -4,11 +4,11 @@ import de.jay8012.enums.FileType;
 
 import java.nio.file.Path;
 
-public class File {
+public class MovieFile {
     private String fileName;
     private Path path;
     private FileType type;
-    public File(String fileName, Path path) {}
+    public MovieFile(String fileName, Path path) {}
 
     public String getFileName() {
         return fileName;
