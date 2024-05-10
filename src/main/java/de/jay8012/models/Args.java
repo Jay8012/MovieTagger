@@ -55,6 +55,14 @@ public class Args {
         this.fileType = fileType;
     }
 
+    public File getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(File filePath) {
+        this.filePath = filePath;
+    }
+
     @Override
     public String toString() {
         return "Args{" +
