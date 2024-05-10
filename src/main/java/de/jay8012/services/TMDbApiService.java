@@ -16,7 +16,7 @@ public class TMDbApiService {
         properties = PropertiesUtils.getProperties();
     }
 
-    public void getMetadataForMovie(String movieName) throws IOException, InterruptedException {
+    public String getMetadataForMovie(String movieName) throws IOException, InterruptedException {
         if (properties == null) {
             throw new NotImplementedException();
         }
@@ -31,7 +31,7 @@ public class TMDbApiService {
                 .GET()
                 .build();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-//        System.out.println("response = " + response.body());
+        return response.body();
 
     }
 }
